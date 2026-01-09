@@ -12,7 +12,12 @@ include "db.php";
 $operator_name   = $_POST["operator_name"] ?? "";
 $experience      = $_POST["experience"] ?? "";
 $specification   = $_POST["specification"] ?? "";
-$availability    = $_POST["availability"] ?? "";
+$availability    = $_POST["availability"] ?? "Available";
+
+// Set default availability if empty or invalid
+if (empty($availability) || strlen($availability) < 2) {
+    $availability = "Available";
+}
 
 // Required Validation
 if ($operator_name == "") {
